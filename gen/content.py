@@ -113,8 +113,8 @@ EDUCATION = [{'degree': 'MSc Advanced Computer Science',
   'where': 'University of Manchester',
   'place': 'Manchester, UK',
   'dates': 'Sep 2025 to Sep 2026',
-  'note': 'Global Future Scholarship'},
- {'degree': 'BTech Information Technology',
+  'note': 'Global Future Scholarship Recipient'},
+ {'degree': 'BTech in Information Technology',
   'where': 'Sona College of Technology',
   'place': 'Tamil Nadu, India',
   'dates': 'Aug 2017 to Apr 2021',
@@ -125,20 +125,21 @@ PROJECTS = [{'num': '01',
   'slug': 'nutrivision',
   'name': 'NUTRIVISION',
   'tag': 'MSc project',
-  'desc': 'Fine-tuned BLIP-2 (Flan-T5-XL) for automated dietary assessment using LoRA, benchmarked across five '
-          'tasks on the Nutrition5K dataset.',
-  'desc2': 'Added a zero-cost inference-time pipeline that improved dietary reasoning with no extra '
-           'training or parameters.',
-  'stack': ['PyTorch', 'Hugging Face PEFT', 'BLIP-2', 'LoRA', 'Gradio']},
+  'desc': 'Fine-tuned BLIP-2 (Flan-T5-XL) for automated dietary assessment from food images using LoRA, '
+          'benchmarking three fine-tuning configurations across five tasks on Nutrition5K with a structured '
+          'model evaluation.',
+  'desc2': 'Designed a zero-cost inference-time post-processing pipeline that improved dietary reasoning '
+           'with no extra training or parameters, and built a Gradio demo to showcase the results.',
+  'stack': ['PyTorch', 'Hugging Face', 'PEFT', 'BLIP-2', 'LoRA', 'Gradio']},
  {'num': '02',
   'slug': 'health-monitor',
   'name': 'HEALTHCARE MONITORING',
   'tag': 'Published · IJPRSE',
   'desc': "Full-stack app predicting a patient's health-risk level from biometrics: age, BMI, blood "
           'pressure, pulse and temperature.',
-  'desc2': 'Decision Tree classifier with Pandas/NumPy preprocessing, served behind a Bootstrap interface '
-           'for real-time classification.',
-  'stack': ['Python', 'Flask', 'scikit-learn', 'Pandas']},
+  'desc2': 'Decision Tree classifier with Pandas/NumPy preprocessing, serialised with joblib and served '
+           'through a Bootstrap 4 interface for real-time predictions.',
+  'stack': ['Python', 'Flask', 'scikit-learn', 'Pandas', 'Bootstrap']},
  {'num': '03',
   'slug': 'sentiment-lens',
   'name': 'SENTIMENT ANALYSIS',
@@ -162,15 +163,15 @@ PROJECTS = [{'num': '01',
 #: every book on a shelf shares the shelf's colour, so colour means group.
 SKILL_SHELVES = [
     ("LANGUAGES", "#9f2b2b", ["Ruby", "Java", "Python", "SQL", "JavaScript"]),
-    ("FRAMEWORKS", "#1e4f8a", ["Ruby on Rails", "Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "Flask"]),
-    ("DATA & MESSAGING", "#2f6b3f", ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Apache Kafka", "SNS / SQS", "Sidekiq", "Karafka"]),
-    ("ARCHITECTURE", "#8a5a12", ["Microservices", "Event-driven", "Distributed systems", "REST APIs", "MVC", "SOLID"]),
-    ("CLOUD & DEVOPS", "#1f6b6b", ["AWS", "Docker", "Kubernetes", "Jenkins", "CI/CD", "Linux", "Bash"]),
-    ("TESTING", "#6b3fa0", ["JUnit", "RSpec", "Mockito", "TDD"]),
-    ("ML & AI", "#8a2f5e", ["PyTorch", "Hugging Face", "LLMs & VLMs", "PEFT / LoRA", "RAG", "FAISS / pgvector", "scikit-learn", "Pandas", "NumPy"]),
+    ("FRAMEWORKS", "#1e4f8a", ["Ruby on Rails", "Spring / Spring Boot", "Spring Data JPA", "Hibernate", "Flask"]),
+    ("DATA & MESSAGING", "#2f6b3f", ["PostgreSQL", "MySQL", "MongoDB", "Redis", "ActiveRecord", "JDBC", "Query optimisation", "Apache Kafka", "SNS / SQS", "Sidekiq", "Karafka"]),
+    ("ARCHITECTURE", "#8a5a12", ["Microservices", "Event-driven", "Distributed systems", "REST APIs", "MVC", "OOP / OOD", "SOLID", "Design patterns"]),
+    ("CLOUD & DEVOPS", "#1f6b6b", ["AWS (EC2, S3, RDS, DMS, MSK)", "Docker", "Kubernetes", "Jenkins", "CI/CD", "Linux", "Bash"]),
+    ("TESTING", "#6b3fa0", ["JUnit", "RSpec", "Mockito", "TDD", "Unit & integration testing"]),
+    ("ML & AI", "#8a2f5e", ["PyTorch", "Hugging Face Transformers", "scikit-learn", "NumPy", "Pandas", "NLP", "Computer vision", "Generative AI", "LLMs & VLMs", "RAG", "Embeddings", "FAISS / pgvector", "PEFT / LoRA", "Model evaluation"]),
 ]
 #: the line under the last shelf
-SKILL_EXTRAS = ["Sentry", "New Relic", "Kibana", "CloudWatch", "Postman", "Swagger", "Git", "Bitbucket", "Jira", "Confluence",
+SKILL_EXTRAS = ["Sentry", "New Relic", "Kibana", "CloudWatch", "Postman", "Swagger / OpenAPI", "Git", "Bitbucket", "Jira", "Confluence",
                 "Agile & Scrum", "NLTK", "Matplotlib"]
 
 #: spines on the bookshelf
