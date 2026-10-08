@@ -48,11 +48,11 @@ INTRO = ("Hi \U0001F44B I'm a software engineer with 4+ years of experience buil
 
 # ---- the resume panel ----
 #: the resume PDF, served by DOWNLOAD PDF
-RESUME_PDF_BLOB = "/_blob/5dd4dd461c9496decbdcaf378c18d267"
+RESUME_PDF_BLOB = "/_blob/1a9b1de30421905afba885f31ada1d89"
 #: out/resume-page-N.png, the same PDF's pages as images (gen/resume_pages.js)
 RESUME_PAGES = [
-    "/_blob/9cf12f2fbb035c91df198131dc9764ec",
-    "/_blob/cf9b629de1264f6c76fd5fa944a1878e",
+    "/_blob/492fcecf0795a0d3134d5efc6e3d9ade",
+    "/_blob/d2a1cc9fc8aedec20c73e61c9aaf628f",
 ]
 
 # ---- the cavern panels ----
@@ -119,7 +119,7 @@ EDUCATION = [{'degree': 'MSc Advanced Computer Science',
   'note': 'Global Future Scholarship Recipient'},
  {'degree': 'BTech in Information Technology',
   'where': 'Sona College of Technology',
-  'place': 'Tamil Nadu, India',
+  'place': 'Salem, India',
   'dates': 'Aug 2017 to Apr 2021',
   'note': 'CGPA 8.92 / 10'}]
 
@@ -128,20 +128,21 @@ PROJECTS = [{'num': '01',
   'slug': 'nutrivision',
   'name': 'NUTRIVISION',
   'tag': 'MSc project',
-  'desc': 'Fine-tuned BLIP-2, a vision-language model, for automated dietary assessment from food images using LoRA, '
-          'benchmarking three fine-tuning configurations across five tasks on Nutrition5K with a structured '
-          'model evaluation.',
-  'desc2': 'Designed a zero-cost inference-time post-processing pipeline that improved dietary reasoning '
-           'with no extra training or parameters, and built a Gradio demo to showcase the results.',
-  'stack': ['PyTorch', 'Hugging Face', 'PEFT', 'BLIP-2', 'LoRA', 'Gradio']},
+  'desc': 'Fine-tuned BLIP-2 (VLM) with LoRA to estimate calories, macronutrients and ingredients from food '
+          'images on Nutrition5K, benchmarking 3 adapter placements across 5 tasks; cut calorie estimation '
+          'error by 40% and more than doubled ingredient F1.',
+  'desc2': 'Engineered a training-free post-processing filter using nutritional consistency rules (Atwater '
+           'calorie-macro checks, range validation) to correct hallucinated answers, lifting accuracy on '
+           'unseen dietary questions from 61% to 80%.',
+  'stack': ['PyTorch', 'Hugging Face', 'PEFT', 'BLIP-2', 'LoRA']},
  {'num': '02',
   'slug': 'health-monitor',
   'name': 'HEALTHCARE MONITORING',
   'tag': 'Published · IJPRSE',
-  'desc': "Full-stack app predicting a patient's health-risk level from biometrics: age, BMI, blood "
-          'pressure, pulse and temperature.',
-  'desc2': 'Decision Tree classifier with Pandas/NumPy preprocessing, serialised with joblib and served '
-           'through a Bootstrap interface for real-time predictions.',
+  'desc': 'Flask and scikit-learn app classifying patients into 3 risk levels from 9 vital-sign and lifestyle '
+          'features, helping identify individuals who may need medical consultation.',
+  'desc2': 'End-to-end ML pipeline: Pandas/NumPy preprocessing, a Decision Tree classifier, joblib '
+           'serialisation, and predictions delivered through a Bootstrap web interface.',
   'stack': ['Python', 'Flask', 'scikit-learn', 'Pandas', 'Bootstrap']},
  {'num': '03',
   'slug': 'sentiment-lens',
