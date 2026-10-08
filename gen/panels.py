@@ -44,13 +44,13 @@ SANS = "system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-ser
 
 
 # ---- the laptop world: fragments for main_template.html -----------------------
-def _role(title, sub, dates, card, pin, bullets, skills=(), expandable=True):
+def _role(title, sub, dates, card, pin, bullets, skills=(), expandable=True, body=None):
     """One role on the experience timeline. Always shown: the title, company and
     dates. The bullets (and the skills used) open on click, so the timeline stays
     easy to scan. Shared by the laptop panel and the phone page."""
     h = _html
     items = "".join('<li style="margin: 0 0 8px;">%s</li>' % h(b) for b in bullets)
-    points = '<ul style="margin: 0; padding-left: 20px; font: 400 16px/1.55 %s; color: #1b1f3b;">%s</ul>' % (SANS, items)
+    points = body or '<ul style="margin: 0; padding-left: 20px; font: 400 16px/1.55 %s; color: #1b1f3b;">%s</ul>' % (SANS, items)
     if skills:
         points += ('<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px;">'
                    '<span style="font: 600 13px/1 %s; color: #57534e; margin-right: 2px;">Skills used:</span>%s</div>'
@@ -70,9 +70,28 @@ def _role(title, sub, dates, card, pin, bullets, skills=(), expandable=True):
           'background: %s; border: 3px solid #1b1f3b; box-sizing: border-box;"></span>' % pin
         + '<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 8px 14px;">'
           '<div><div class="pf" style="font-size: 12px; line-height: 1.5;">%s</div>'
-          '<div style="margin-top: 4px; font: 500 16px/1.3 %s; color: #57534e;">%s</div></div>%s</div>'
-          % (h(title), SANS, h(sub), date_pill)
+          '%s</div>%s</div>'
+          % (h(title), ('<div style="margin-top: 4px; font: 500 16px/1.3 %s; color: #57534e;">%s</div>' % (SANS, h(sub))) if sub else "", date_pill)
         + points + "</article>")
+
+
+def _education():
+    """The education card laid out like the resume: degree and dates, then the
+    school and where it is, then the note (scholarship, grade)."""
+    h = _html
+    row = 'display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 2px 14px;'
+    out = []
+    for i, e in enumerate(content.EDUCATION):
+        rule = "" if i == 0 else " padding-top: 14px; border-top: 2px dashed rgba(27,31,59,.25);"
+        out.append(
+            '<div style="display: flex; flex-direction: column; gap: 4px;%s">' % rule
+            + '<div style="%s"><span style="font: 700 17px/1.35 %s;">%s</span>'
+              '<span style="font: 600 14px/1.35 %s; color: #57534e;">%s</span></div>' % (row, SANS, h(e["degree"]), SANS, h(e["dates"]))
+            + '<div style="%s font: italic 500 15px/1.4 %s; color: #57534e;"><span>%s</span><span>%s</span></div>'
+              % (row, SANS, h(e["where"]), h(e.get("place", "")))
+            + ('<div style="margin-top: 2px; font: 500 15px/1.4 %s;">%s</div>' % (SANS, h(e["note"])) if e.get("note") else "")
+            + "</div>")
+    return '<div style="display: flex; flex-direction: column; gap: 14px;">%s</div>' % "".join(out)
 
 
 def _timeline(cards):
@@ -85,9 +104,7 @@ def _roles():
     cards = [_role(r["title"], r["where"], r["dates"], r["card"], r["pin"], r["bullets"], r.get("skills", []))
              for r in content.EXPERIENCE]
     ed = content.EDUCATION_CARD
-    cards.append(_role(ed["title"], ed["org"], "", ed["card"], ed["pin"],
-                       [" \u00b7 ".join(x for x in (e["degree"], e["where"], e["dates"], e["note"]) if x)
-                        for e in content.EDUCATION], expandable=False))
+    cards.append(_role(ed["title"], ed["org"], "", ed["card"], ed["pin"], [], expandable=False, body=_education()))
     return _timeline(cards)
 
 
@@ -241,8 +258,8 @@ def mobile_view():
         f'<div class="chips">{"".join(f"<span class=chip>{h(s)}</span>" for s in p["stack"])}</div></details></article>'
         for p in content.PROJECTS)
 
-    def role(title, sub, dates, pin, bullets, skills=(), expandable=True):
-        pts = "<ul class=\"pts\">" + "".join(f"<li>{h(b)}</li>" for b in bullets) + "</ul>"
+    def role(title, sub, dates, pin, bullets, skills=(), expandable=True, body=None):
+        pts = body or "<ul class=\"pts\">" + "".join(f"<li>{h(b)}</li>" for b in bullets) + "</ul>"
         if skills:
             pts += ('<div class="used"><span>Skills used:</span>'
                     + "".join(f'<span class="chip">{h(k)}</span>' for k in skills) + "</div>")
@@ -251,13 +268,17 @@ def mobile_view():
                    f'<span class="when-open">HIDE DETAILS</span></summary>{pts}</details>')
         pill = f'<span class="pill">{h(dates)}</span>' if dates else ""
         return (f'<article class="card mrole"><span class="mdot" style="background:{pin}"></span>'
-                f'<div class="mrole-head"><div><h3 class="pf">{h(title)}</h3><div class="sub">{h(sub)}</div></div>{pill}</div>{pts}</article>')
+                f'<div class="mrole-head"><div><h3 class="pf">{h(title)}</h3>{f'<div class="sub">{h(sub)}</div>' if sub else ""}</div>{pill}</div>{pts}</article>')
     jobs = ('<div class="cork"><div class="tl">'
             + "".join(role(r["title"], r["where"], r["dates"], r["pin"], r["bullets"], r.get("skills", []))
                       for r in content.EXPERIENCE)
             + role(content.EDUCATION_CARD["title"], content.EDUCATION_CARD["org"], "", content.EDUCATION_CARD["pin"],
-                   [" \u00b7 ".join(x for x in (e["degree"], e["where"], e["dates"], e["note"]) if x) for e in content.EDUCATION],
-                   expandable=False)
+                   [], expandable=False,
+                   body='<div class="edu">' + "".join(
+                       f'<div class="edu-item"><div class="edu-row"><b>{h(e["degree"])}</b><span>{h(e["dates"])}</span></div>'
+                       f'<div class="edu-row edu-where"><span>{h(e["where"])}</span><span>{h(e.get("place", ""))}</span></div>'
+                       + (f'<div class="edu-note">{h(e["note"])}</div>' if e.get("note") else "") + '</div>'
+                       for e in content.EDUCATION) + '</div>')
             + "</div></div>")
 
     art = "".join(f'<figure class="frame"><img src="{a["thumb"]}" alt="{h(a["alt"])}" width="360" height="360"></figure>'

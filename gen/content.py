@@ -43,16 +43,16 @@ AVAILABILITY = "Open to new opportunities."
 AVAILABILITY_MORE = "Let\u2019s build something great together!"
 #: the short introduction on the phone view
 INTRO = ("Hi \U0001F44B I'm a software engineer with 4+ years of experience building secure, scalable "
-         "backend systems across healthcare, e-commerce and enterprise. I enjoy solving problems, "
+         "backend systems across healthcare, e-pharmacy and enterprise. I enjoy solving problems, "
          "debugging, experimenting, and exploring new things.")
 
 # ---- the resume panel ----
 #: the resume PDF, served by DOWNLOAD PDF
-RESUME_PDF_BLOB = "/_blob/0d752e1888e7dacdc88dd106a17362fb"
+RESUME_PDF_BLOB = "/_blob/df03b51b542c8c8787b1f55403cf0cde"
 #: out/resume-page-N.png, the same PDF's pages as images (gen/resume_pages.js)
 RESUME_PAGES = [
-    "/_blob/55930142619d0ddabc69451c241e762f",
-    "/_blob/3df64a6d88fe4f43c3836fb9e775d86e",
+    "/_blob/d4c063481ac27809d04e9c847c3b7ee4",
+    "/_blob/66e1eb830f58de504e69d4e622db5651",
 ]
 
 # ---- the cavern panels ----
@@ -63,52 +63,61 @@ EXPERIENCE = [{'title': 'SOFTWARE DEVELOPMENT ENGINEER',
   'dates': 'Oct 2022 to Jun 2025',
   'card': '#fdf8ec',
   'pin': '#dc2626',
-  'skills': ['Kafka', 'Event-driven architecture', 'Distributed services', 'Workflow automation'],
-  'bullets': ['Built backend workflows and integrations for ODIN, a warehouse platform covering inventory, '
-              'order fulfilment, procurement and supply chain',
-              'Kafka event-driven integration with the Purchasing Service, automating purchase-order '
-              'status sync across distributed services',
-              'Picker-to-Packer handover for scanned orders, one manual step removed, ₹6 lakh/month saved '
-              '(~£4,600)',
-              'SKU barcoding across warehouse operations, cutting manpower cost by ₹20 lakh (~£15,000)',
-              'Automated the Re-GRN workflow: 40%+ less manual effort, 15+ minutes saved per GRN',
-              'Vendor-level financial segregation across 50+ vendors, lifting reconciliation accuracy 25%+',
-              'Scaled the SKU Audit app to 10K+ SKUs/month; cut Patient Support Program turnaround 50%',
-              'On-call for 15+ production incidents a month; mentored 3+ junior engineers']},
+  'skills': ['Ruby on Rails', 'PostgreSQL', 'AWS', 'SQS FIFO', 'Redis', 'Apache Kafka', 'Sidekiq',
+             'Karafka', 'AWS DMS & MSK', 'RSpec'],
+  'bullets': ["Built and maintained backend services for ODIN, Tata 1mg's in-house warehouse management "
+              'platform, covering inventory, orders and purchasing across warehouses and retail stores',
+              'Cut high-traffic API response times by 75% by optimising ActiveRecord queries and removing '
+              'unnecessary database calls',
+              "Processed each vendor's updates in order with AWS SQS FIFO queues and Redis-tracked retries, "
+              'lifting inventory reconciliation accuracy 25%+ across 50+ vendors',
+              'Automated purchase-order processing by connecting ODIN to finance (FAS) and SAP over REST, '
+              '500+ B2B orders a month, with Sidekiq and Kafka keeping other services in sync',
+              'Audit-logging pipeline on AWS DMS, MSK and Karafka recording every database change (what, '
+              'who and when) across multiple tables in one central history',
+              'Automated the Re-GRN (goods return) workflow with bulk SQL inserts: 40%+ less manual effort, '
+              '15+ minutes saved per return',
+              'Picker-to-Packer handover automation saving ₹6 lakh/month (~£4,600); contributed to the SKU '
+              'barcoding rollout, saving ₹20 lakh (~£15,500) in manpower',
+              'Resolved 15+ production incidents a month with Sentry, New Relic and Kibana; mentored 3+ '
+              'junior engineers']},
  {'title': 'SOFTWARE ENGINEER',
   'where': 'Tata Digital Health · Bangalore',
   'dates': 'Jul 2021 to Oct 2022',
   'card': '#e6f1fb',
   'pin': '#2563eb',
-  'skills': ['REST APIs', 'Single Sign-On', 'Push notifications'],
-  'bullets': ['Backend REST APIs for a patient- and doctor-facing telemedicine platform running 1,000+ '
-              'consultations a day, including digital prescriptions',
-              'Demographic-based symptom prompts and language matching across 4+ languages, 15%+ faster '
-              'setup, wider access',
-              'Single Sign-On across platforms, plus push notifications for appointments and consultation '
-              'updates']},
+  'skills': ['Java', 'Spring Boot', 'Spring Data JPA', 'Hibernate', 'MySQL', 'REST APIs', 'Single Sign-On'],
+  'bullets': ['Backend REST APIs in Java, Spring Boot and Spring Data JPA/Hibernate with MySQL for a '
+              'telemedicine platform running 1,000+ consultations a day, including digital prescriptions',
+              'Clinical Decision Support (CDSS) features: demographic-based symptom prompts and doctor '
+              'matching across 4+ languages, cutting consultation setup time by 15%',
+              'Integrated Single Sign-On and appointment-reminder push notifications, and contributed to the '
+              'paid e-consultation cart-to-order and payment flow']},
  {'title': 'SOFTWARE ENGINEERING INTERN',
   'where': 'Cognizant · India',
   'dates': 'Feb 2021 to Jun 2021',
   'card': '#fdeef3',
   'pin': '#dc2626',
-  'skills': ['Java', 'Spring Boot', 'Spring Data JPA', 'Hibernate', 'JUnit', 'TDD'],
-  'bullets': ['Backend services in Java, Spring Boot, Spring Data JPA and Hibernate, test-driven with '
-              'JUnit',
-              'Led a 4-member project team and earned a return offer as Programmer Analyst Trainee']}]
+  'skills': ['Java', 'Spring Boot', 'MVC', 'JUnit', 'Mockito', 'TDD'],
+  'bullets': ['Built a full-stack application end to end: a Java and Spring Boot backend with a layered MVC '
+              'design, applying OOP, SOLID and TDD with JUnit and Mockito',
+              'Led a 4-member team through Agile/Scrum sprints and earned a return offer as Programmer '
+              'Analyst Trainee']}]
 
 #: the green card at the bottom of the board
 EDUCATION_CARD = {'card': '#e8f7ea',
  'pin': '#16a34a',
  'title': 'EDUCATION',
- 'org': 'Manchester, UK · Tamil Nadu, India'}
+ 'org': ''}
 EDUCATION = [{'degree': 'MSc Advanced Computer Science',
   'where': 'University of Manchester',
+  'place': 'Manchester, UK',
   'dates': 'Sep 2025 to Sep 2026',
   'note': 'Global Future Scholarship'},
  {'degree': 'BTech Information Technology',
   'where': 'Sona College of Technology',
-  'dates': '2017 to 2021',
+  'place': 'Tamil Nadu, India',
+  'dates': 'Aug 2017 to Apr 2021',
   'note': 'CGPA 8.92 / 10'}]
 
 #: the terminal in the projects hub
@@ -116,11 +125,11 @@ PROJECTS = [{'num': '01',
   'slug': 'nutrivision',
   'name': 'NUTRIVISION',
   'tag': 'MSc project',
-  'desc': 'Adapted BLIP-2 for automated dietary assessment using LoRA fine-tuning, benchmarked across five '
+  'desc': 'Fine-tuned BLIP-2 (Flan-T5-XL) for automated dietary assessment using LoRA, benchmarked across five '
           'tasks on the Nutrition5K dataset.',
   'desc2': 'Added a zero-cost inference-time pipeline that improved dietary reasoning with no extra '
            'training or parameters.',
-  'stack': ['PyTorch', 'Hugging Face PEFT', 'BLIP-2', 'LoRA']},
+  'stack': ['PyTorch', 'Hugging Face PEFT', 'BLIP-2', 'LoRA', 'Gradio']},
  {'num': '02',
   'slug': 'health-monitor',
   'name': 'HEALTHCARE MONITORING',
@@ -134,32 +143,34 @@ PROJECTS = [{'num': '01',
   'slug': 'sentiment-lens',
   'name': 'SENTIMENT ANALYSIS',
   'tag': 'AFINN & WordNet',
-  'desc': 'Desktop app pulling live tweets and classifying them positive, negative or neutral with AFINN '
-          'and SentiWordNet.',
-  'desc2': 'NLTK tokenising, POS tagging, lemmatising and stemming, with the split charted in Matplotlib.',
-  'stack': ['Python', 'Tkinter', 'Tweepy', 'NLTK']},
+  'desc': 'Python desktop app (Tkinter) fetching live tweets through the Twitter API (Tweepy) and '
+          'classifying them positive, negative or neutral with the AFINN and WordNet/SentiWordNet lexicons.',
+  'desc2': 'NLTK preprocessing (tokenisation, POS tagging, lemmatisation and stemming), with the sentiment '
+           'distribution visualised as a pie chart in Matplotlib.',
+  'stack': ['Python', 'Tkinter', 'Tweepy', 'NLTK', 'Matplotlib']},
  {'num': '04',
   'slug': 'healdroid',
   'name': 'HEALDROID',
-  'tag': 'IoT',
-  'desc': 'Arduino/ESP8266 rig streaming heart rate and body temperature to ThingSpeak over WiFi.',
-  'desc2': 'Companion Android app in Java for real-time remote patient monitoring through the ThingSpeak '
-           'API.',
-  'stack': ['Arduino', 'ESP8266', 'Java', 'Android']}]
+  'tag': 'IoT Health Monitoring',
+  'desc': 'IoT system using Arduino/ESP8266 to stream biometric data (heart rate, body temperature) to the '
+          'ThingSpeak cloud over WiFi.',
+  'desc2': 'Android mobile app in Java for real-time remote patient monitoring through the ThingSpeak API '
+           'and JSON.',
+  'stack': ['Arduino', 'ESP8266', 'ThingSpeak', 'Java', 'Android']}]
 
 #: the skills archive panel: one shelf per group, one book per skill.
 #: every book on a shelf shares the shelf's colour, so colour means group.
 SKILL_SHELVES = [
     ("LANGUAGES", "#9f2b2b", ["Ruby", "Java", "Python", "SQL", "JavaScript"]),
-    ("FRAMEWORKS", "#1e4f8a", ["Ruby on Rails", "Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate"]),
-    ("DATA & MESSAGING", "#2f6b3f", ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Apache Kafka", "SNS / SQS", "Sidekiq"]),
-    ("ARCHITECTURE", "#8a5a12", ["Microservices", "Event-driven", "Distributed systems", "REST APIs", "SOLID"]),
+    ("FRAMEWORKS", "#1e4f8a", ["Ruby on Rails", "Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "Flask"]),
+    ("DATA & MESSAGING", "#2f6b3f", ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Apache Kafka", "SNS / SQS", "Sidekiq", "Karafka"]),
+    ("ARCHITECTURE", "#8a5a12", ["Microservices", "Event-driven", "Distributed systems", "REST APIs", "MVC", "SOLID"]),
     ("CLOUD & DEVOPS", "#1f6b6b", ["AWS", "Docker", "Kubernetes", "Jenkins", "CI/CD", "Linux", "Bash"]),
     ("TESTING", "#6b3fa0", ["JUnit", "RSpec", "Mockito", "TDD"]),
-    ("ML & AI", "#8a2f5e", ["PyTorch", "Hugging Face", "LLMs & VLMs", "PEFT / LoRA", "scikit-learn", "Pandas", "NumPy"]),
+    ("ML & AI", "#8a2f5e", ["PyTorch", "Hugging Face", "LLMs & VLMs", "PEFT / LoRA", "RAG", "FAISS / pgvector", "scikit-learn", "Pandas", "NumPy"]),
 ]
 #: the line under the last shelf
-SKILL_EXTRAS = ["Sentry", "New Relic", "Kibana", "CloudWatch", "Postman", "Swagger", "Git",
+SKILL_EXTRAS = ["Sentry", "New Relic", "Kibana", "CloudWatch", "Postman", "Swagger", "Git", "Bitbucket", "Jira", "Confluence",
                 "Agile & Scrum", "NLTK", "Matplotlib"]
 
 #: spines on the bookshelf

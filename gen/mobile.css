@@ -107,6 +107,12 @@
 #mobile .mrole:is(:hover,:active), #mobile .proj:is(:hover,:active){border-color:var(--accent)}
 #mobile .pts{margin:12px 0 0;padding-left:20px;font:400 16px/1.55 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--text)}
 #mobile .pts li{margin:0 0 8px}
+#mobile .edu{display:flex;flex-direction:column;gap:12px;margin-top:12px;font:400 16px/1.45 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--text)}
+#mobile .edu-item+.edu-item{padding-top:12px;border-top:2px dashed var(--border)}
+#mobile .edu-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 12px}
+#mobile .edu-row span{color:var(--muted);font-size:14px;font-weight:600}
+#mobile .edu-where span{font-style:italic;font-weight:500;font-size:15px}
+#mobile .edu-note{margin-top:4px;font-size:15px}
 #mobile .used{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:10px}
 #mobile .used > span:first-child{font-size:18px;color:var(--muted);margin-right:2px}
 /* the cork board it is pinned to */
