@@ -48,10 +48,10 @@ INTRO = ("Hi \U0001F44B I'm a software engineer with 4+ years of experience buil
 
 # ---- the resume panel ----
 #: the resume PDF, served by DOWNLOAD PDF
-RESUME_PDF_BLOB = "/_blob/df03b51b542c8c8787b1f55403cf0cde"
+RESUME_PDF_BLOB = "/_blob/7fe732e1d0bb48f1f3f13a6611639ee3"
 #: out/resume-page-N.png, the same PDF's pages as images (gen/resume_pages.js)
 RESUME_PAGES = [
-    "/_blob/d4c063481ac27809d04e9c847c3b7ee4",
+    "/_blob/4c393a6ebc471c6c6e614ac6ce62e427",
     "/_blob/66e1eb830f58de504e69d4e622db5651",
 ]
 
