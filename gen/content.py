@@ -48,11 +48,11 @@ INTRO = ("Hi \U0001F44B I'm a software engineer with 4+ years of experience buil
 
 # ---- the resume panel ----
 #: the resume PDF, served by DOWNLOAD PDF
-RESUME_PDF_BLOB = "/_blob/7fe732e1d0bb48f1f3f13a6611639ee3"
+RESUME_PDF_BLOB = "/_blob/5dd4dd461c9496decbdcaf378c18d267"
 #: out/resume-page-N.png, the same PDF's pages as images (gen/resume_pages.js)
 RESUME_PAGES = [
-    "/_blob/4c393a6ebc471c6c6e614ac6ce62e427",
-    "/_blob/66e1eb830f58de504e69d4e622db5651",
+    "/_blob/9cf12f2fbb035c91df198131dc9764ec",
+    "/_blob/cf9b629de1264f6c76fd5fa944a1878e",
 ]
 
 # ---- the cavern panels ----
@@ -63,24 +63,27 @@ EXPERIENCE = [{'title': 'SOFTWARE DEVELOPMENT ENGINEER',
   'dates': 'Oct 2022 to Jun 2025',
   'card': '#fdf8ec',
   'pin': '#dc2626',
-  'skills': ['Ruby on Rails', 'PostgreSQL', 'AWS', 'SQS FIFO', 'Redis', 'Apache Kafka', 'Sidekiq',
-             'Karafka', 'AWS DMS & MSK', 'RSpec'],
-  'bullets': ["Built and maintained backend services for ODIN, Tata 1mg's in-house warehouse management "
-              'platform, covering inventory, orders and purchasing across warehouses and retail stores',
-              'Cut high-traffic API response times by 75% by optimising ActiveRecord queries and removing '
-              'unnecessary database calls',
-              "Processed each vendor's updates in order with AWS SQS FIFO queues and Redis-tracked retries, "
-              'lifting inventory reconciliation accuracy 25%+ across 50+ vendors',
-              'Automated purchase-order processing by connecting ODIN to finance (FAS) and SAP over REST, '
-              '500+ B2B orders a month, with Sidekiq and Kafka keeping other services in sync',
-              'Audit-logging pipeline on AWS DMS, MSK and Karafka recording every database change (what, '
-              'who and when) across multiple tables in one central history',
-              'Automated the Re-GRN (goods return) workflow with bulk SQL inserts: 40%+ less manual effort, '
-              '15+ minutes saved per return',
-              'Picker-to-Packer handover automation saving ₹6 lakh/month (~£4,600); contributed to the SKU '
-              'barcoding rollout, saving ₹20 lakh (~£15,500) in manpower',
-              'Resolved 15+ production incidents a month with Sentry, New Relic and Kibana; mentored 3+ '
-              'junior engineers']},
+  'skills': ['Ruby on Rails', 'Python', 'PostgreSQL', 'AWS', 'SQS FIFO', 'Redis', 'Apache Kafka', 'Sidekiq',
+             'Karafka', 'AWS DMS & MSK', 'Sentry', 'New Relic', 'Kibana'],
+  'bullets': ["Built and maintained backend services for ODIN, Tata 1mg's in-house warehouse and supply chain "
+              'management platform, using Ruby on Rails, Python, PostgreSQL and AWS microservices to power '
+              'inventory, order fulfilment and procurement across warehouses and retail stores',
+              'Cut P99 latency of high-traffic APIs by 75% by optimising ActiveRecord queries with eager loading, '
+              'database indexing and fewer database calls, and replaced row-by-row writes with bulk SQL in '
+              'goods-return workflows',
+              'Improved inventory reconciliation accuracy by 25%+ across 50+ vendors by processing vendor updates '
+              'in order with AWS SQS FIFO and vendor-specific message groups, tracking failed events in Redis for '
+              'retry and monitoring',
+              'Automated 500+ B2B purchase orders a month by integrating ODIN with internal finance systems and SAP '
+              'over REST, with automatic order expiry and status updates through Sidekiq and Kafka keeping '
+              'downstream services in sync',
+              'Built a centralised audit-logging pipeline on AWS DMS, MSK and Karafka capturing CDC events across '
+              'multiple tables, with an audit history of changes and user metadata',
+              'Picker-to-Packer handover automation removing a manual fulfilment step and saving ₹6 lakh/month '
+              '(~£4,600); contributed to the SKU barcoding rollout, cutting manpower costs by ₹20 lakh (~£15,500)',
+              'Delivered high-priority features alongside on-call support, resolving 15+ incidents a month with '
+              'Sentry, New Relic and Kibana, contributing to technical design, documenting in Confluence and '
+              'mentoring 3+ junior engineers']},
  {'title': 'SOFTWARE ENGINEER',
   'where': 'Tata Digital Health · Bangalore',
   'dates': 'Jul 2021 to Oct 2022',
@@ -92,7 +95,7 @@ EXPERIENCE = [{'title': 'SOFTWARE DEVELOPMENT ENGINEER',
               'Clinical Decision Support (CDSS) features: demographic-based symptom prompts and doctor '
               'matching across 4+ languages, cutting consultation setup time by 15%',
               'Integrated Single Sign-On and appointment-reminder push notifications, and contributed to the '
-              'paid e-consultation cart-to-order and payment flow']},
+              'paid e-consultation cart-to-order and payment flow, from authentication and booking through payment']},
  {'title': 'SOFTWARE ENGINEERING INTERN',
   'where': 'Cognizant · India',
   'dates': 'Feb 2021 to Jun 2021',
@@ -125,7 +128,7 @@ PROJECTS = [{'num': '01',
   'slug': 'nutrivision',
   'name': 'NUTRIVISION',
   'tag': 'MSc project',
-  'desc': 'Fine-tuned BLIP-2 (Flan-T5-XL) for automated dietary assessment from food images using LoRA, '
+  'desc': 'Fine-tuned BLIP-2, a vision-language model, for automated dietary assessment from food images using LoRA, '
           'benchmarking three fine-tuning configurations across five tasks on Nutrition5K with a structured '
           'model evaluation.',
   'desc2': 'Designed a zero-cost inference-time post-processing pipeline that improved dietary reasoning '
@@ -138,7 +141,7 @@ PROJECTS = [{'num': '01',
   'desc': "Full-stack app predicting a patient's health-risk level from biometrics: age, BMI, blood "
           'pressure, pulse and temperature.',
   'desc2': 'Decision Tree classifier with Pandas/NumPy preprocessing, serialised with joblib and served '
-           'through a Bootstrap 4 interface for real-time predictions.',
+           'through a Bootstrap interface for real-time predictions.',
   'stack': ['Python', 'Flask', 'scikit-learn', 'Pandas', 'Bootstrap']},
  {'num': '03',
   'slug': 'sentiment-lens',
@@ -164,7 +167,7 @@ PROJECTS = [{'num': '01',
 SKILL_SHELVES = [
     ("LANGUAGES", "#9f2b2b", ["Ruby", "Java", "Python", "SQL", "JavaScript"]),
     ("FRAMEWORKS", "#1e4f8a", ["Ruby on Rails", "Spring / Spring Boot", "Spring Data JPA", "Hibernate", "Flask"]),
-    ("DATA & MESSAGING", "#2f6b3f", ["PostgreSQL", "MySQL", "MongoDB", "Redis", "ActiveRecord", "JDBC", "Query optimisation", "Apache Kafka", "SNS / SQS", "Sidekiq", "Karafka"]),
+    ("DATA & MESSAGING", "#2f6b3f", ["PostgreSQL", "MySQL", "MongoDB", "Redis (caching)", "ORM", "ActiveRecord", "JDBC", "Query optimisation", "Apache Kafka", "SNS / SQS", "Sidekiq", "Karafka"]),
     ("ARCHITECTURE", "#8a5a12", ["Microservices", "Event-driven", "Distributed systems", "REST APIs", "MVC", "OOP / OOD", "SOLID", "Design patterns"]),
     ("CLOUD & DEVOPS", "#1f6b6b", ["AWS (EC2, S3, RDS, DMS, MSK)", "Docker", "Kubernetes", "Jenkins", "CI/CD", "Linux", "Bash"]),
     ("TESTING", "#6b3fa0", ["JUnit", "RSpec", "Mockito", "TDD", "Unit & integration testing"]),
