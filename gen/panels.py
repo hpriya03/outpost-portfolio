@@ -359,6 +359,7 @@ PARTS = {
     "RESUME_PAGES": resume_pages,
     "EXPERIENCE_ARTICLES": experience_articles,
     "PROJECTS_JS": projects_js,
+    "PROJECT_COUNT": lambda: str(len(content.PROJECTS)),
     "SKILL_BOOKS_JS": skill_books_js,
     "SKILL_SHELVES": skill_shelves,
     "ARTWORKS_JS": artworks_js,
